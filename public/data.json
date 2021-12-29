@@ -1,0 +1,46 @@
+{
+  "questions": [
+    [
+      {
+        "id": "q-name",
+        "name": "Ім'я"
+      },
+      {
+        "id": "q-second-name",
+        "name": "Прізвище"
+      },
+      {
+        "id": "q-patronym",
+        "name": "По-батькові"
+      }
+    ],
+    [
+      {
+        "id": "q-age",
+        "name": "Вік" 
+      },
+      {
+        "id": "q-job",
+        "name": "Професія"
+      },
+      {
+        "id": "q-school-form",
+        "name": "Шкільний клас (якщо є)"
+      },
+      {
+        "id": "q-university-course",
+        "name": "Університетський курс (якщо є)"
+      }
+    ],
+    [
+      {
+        "id": "q-country",
+        "name": "Країна"
+      },
+      {
+        "id": "q-city",
+        "name": "Місто"
+      }
+    ]
+  ]
+}
