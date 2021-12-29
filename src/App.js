@@ -8,7 +8,8 @@ export default class App extends React.Component {
 
     this.state = {
       pageNumber: 0,
-      answers: {}
+      answers: {},
+      showResults: false
     };
 
     this.nextPage = this.nextPage.bind(this);
@@ -60,6 +61,11 @@ export default class App extends React.Component {
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
+
+    this.setState({
+      showResults: true,
+      answers: filteredAnswers
+    });
   }
   
   render() {
@@ -71,12 +77,16 @@ export default class App extends React.Component {
       panelType = "last";
     }
 
+    const internals = (this.state.showResults) ?
+      this.state.answers.map(({ name, value }) => <p>{`${name}: ${value}`}</p>) :
+      <Panel data={this.state.questions} pageNumber={this.state.pageNumber} onChange={this.setAnswers} type={panelType}
+             prevHandler={this.previousPage} nextHandler={this.nextPage} finishHandler={this.handleFinish}
+             cancelHandler={this.closeTab} />
+
     return (
       <div className="App">
         <header className="App-header">
-          <Panel data={this.state.questions} pageNumber={this.state.pageNumber} onChange={this.setAnswers} type={panelType}
-            prevHandler={this.previousPage} nextHandler={this.nextPage} finishHandler={this.handleFinish}
-            cancelHandler={this.closeTab} />
+          {internals}
         </header>
       </div>
     );
